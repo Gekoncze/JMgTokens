@@ -2,7 +2,7 @@ package cz.mg.token.tokens.brackets;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Shared;
+import cz.mg.annotations.storage.Commons;
 import cz.mg.collections.list.List;
 import cz.mg.token.Token;
 
@@ -12,7 +12,7 @@ public @Entity class Brackets extends Token {
     public Brackets() {
     }
 
-    @Required @Shared
+    @Required @Commons
     public List<Token> getTokens() {
         return tokens;
     }

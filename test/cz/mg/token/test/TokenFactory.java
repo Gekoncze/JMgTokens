@@ -4,10 +4,10 @@ import cz.mg.annotations.classes.Service;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.token.Token;
 import cz.mg.token.tokens.*;
-import cz.mg.token.tokens.quote.DoubleQuoteToken;
-import cz.mg.token.tokens.comment.MultiLineCommentToken;
-import cz.mg.token.tokens.comment.SingleLineCommentToken;
-import cz.mg.token.tokens.quote.SingleQuoteToken;
+import cz.mg.token.tokens.quotes.DoubleQuoteToken;
+import cz.mg.token.tokens.comments.MultiLineCommentToken;
+import cz.mg.token.tokens.comments.SingleLineCommentToken;
+import cz.mg.token.tokens.quotes.SingleQuoteToken;
 
 public @Service class TokenFactory {
     private static volatile @Service TokenFactory instance;

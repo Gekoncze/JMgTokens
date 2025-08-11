@@ -1,4 +1,4 @@
-package cz.mg.token.tokens.comment;
+package cz.mg.token.tokens.comments;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.token.tokens.CommentToken;

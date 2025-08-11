@@ -1,4 +1,4 @@
-package cz.mg.token.tokens.quote;
+package cz.mg.token.tokens.quotes;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.token.tokens.QuoteToken;
