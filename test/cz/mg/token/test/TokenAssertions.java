@@ -5,6 +5,8 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.collections.list.List;
 import cz.mg.test.Assert;
+import cz.mg.test.Assertions;
+import cz.mg.test.BiAssertions;
 import cz.mg.token.Token;
 
 import java.util.Objects;
@@ -27,7 +29,7 @@ public @Service class TokenAssertions {
     }
 
     public void assertEquals(@Optional Token expectation, @Optional Token reality) {
-        Assert
+        BiAssertions
             .assertThat(expectation, reality)
             .withPrintFunction(this::print)
             .withCompareFunction(this::compare)
@@ -35,8 +37,7 @@ public @Service class TokenAssertions {
     }
 
     public void assertEquals(@Optional List<Token> expectation, @Optional List<Token> reality) {
-        Assert
-            .assertThatCollections(expectation, reality)
+        BiAssertions.assertThat(expectation, reality)
             .withPrintFunction(this::print)
             .withCompareFunction(this::compare)
             .verbose("[", ",", "]")

@@ -5,6 +5,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.collections.list.List;
 import cz.mg.collections.list.ListItem;
 import cz.mg.test.Assert;
+import cz.mg.test.Assertions;
 import cz.mg.token.Token;
 
 public @Service class TokenMutator {
@@ -55,8 +56,7 @@ public @Service class TokenMutator {
         @Mandatory Factory factory,
         @Mandatory Consumer<R> consumer
     ) {
-        Assert
-            .assertThatCode(() -> {
+        Assertions.assertThatCode(() -> {
                 Token originalToken = item.get();
                 Token mutatedToken = factory.create();
                 mutatedToken.setText(originalToken.getText());
