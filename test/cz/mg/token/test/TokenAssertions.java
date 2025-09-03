@@ -7,6 +7,7 @@ import cz.mg.collections.list.List;
 import cz.mg.test.Assert;
 import cz.mg.test.Assertions;
 import cz.mg.test.BiAssertions;
+import cz.mg.test.exceptions.AssertException;
 import cz.mg.token.Token;
 
 import java.util.Objects;
@@ -42,6 +43,24 @@ public @Service class TokenAssertions {
             .withCompareFunction(this::compare)
             .verbose("[", ",", "]")
             .areEqual();
+    }
+
+    public void assertNotEquals(@Optional Token expectation, @Optional Token reality) {
+        BiAssertions
+            .assertThat(expectation, reality)
+            .withPrintFunction(this::print)
+            .withCompareFunction(this::compare)
+            .areNotEqual();
+    }
+
+    public void assertNotEquals(@Optional List<Token> expectation, @Optional List<Token> reality) {
+        Assertions.assertThatCode(() -> {
+            BiAssertions.assertThat(expectation, reality)
+                .withPrintFunction(this::print)
+                .withCompareFunction(this::compare)
+                .verbose("[", ",", "]")
+                .areEqual();
+        }).throwsException(AssertException.class);
     }
 
     private String print(@Mandatory Token token) {
