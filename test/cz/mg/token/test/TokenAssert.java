@@ -1,36 +1,19 @@
 package cz.mg.token.test;
 
-import cz.mg.annotations.classes.Service;
+import cz.mg.annotations.classes.Static;
 import cz.mg.annotations.requirement.Optional;
-import cz.mg.collections.list.List;
 import cz.mg.test.Assertions;
 import cz.mg.token.Token;
 
-public @Service class TokenAssertions {
-    private static volatile @Service TokenAssertions instance;
-
-    public static @Service TokenAssertions getInstance() {
-        if (instance == null) {
-            synchronized (Service.class) {
-                if (instance == null) {
-                    instance = new TokenAssertions();
-                }
-            }
-        }
-        return instance;
-    }
-
-    private TokenAssertions() {
-    }
-
-    public void assertEquals(@Optional Token expectation, @Optional Token reality) {
+public @Static class TokenAssert {
+    public static void assertEquals(@Optional Token expectation, @Optional Token reality) {
         Assertions.assertThat(reality)
             .withFormatFunction(TokenFunctions::format)
             .withEqualsFunction(TokenFunctions::equals)
             .isEqualTo(expectation);
     }
 
-    public void assertEquals(@Optional List<Token> expectation, @Optional List<Token> reality) {
+    public static void assertEquals(@Optional Iterable<Token> expectation, @Optional Iterable<Token> reality) {
         Assertions.assertThatCollection(reality)
             .withFormatFunction(TokenFunctions::format)
             .withEqualsFunction(TokenFunctions::equals)
@@ -38,14 +21,14 @@ public @Service class TokenAssertions {
             .isEqualTo(expectation);
     }
 
-    public void assertNotEquals(@Optional Token expectation, @Optional Token reality) {
+    public static void assertNotEquals(@Optional Token expectation, @Optional Token reality) {
         Assertions.assertThat(reality)
             .withFormatFunction(TokenFunctions::format)
             .withEqualsFunction(TokenFunctions::equals)
             .isNotEqualTo(expectation);
     }
 
-    public void assertNotEquals(@Optional List<Token> expectation, @Optional List<Token> reality) {
+    public static void assertNotEquals(@Optional Iterable<Token> expectation, @Optional Iterable<Token> reality) {
         Assertions.assertThatCollection(reality)
             .withFormatFunction(TokenFunctions::format)
             .withEqualsFunction(TokenFunctions::equals)

@@ -4,7 +4,6 @@ import cz.mg.annotations.classes.Service;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.collections.list.List;
 import cz.mg.collections.list.ListItem;
-import cz.mg.test.Assert;
 import cz.mg.test.Assertions;
 import cz.mg.token.Token;
 
