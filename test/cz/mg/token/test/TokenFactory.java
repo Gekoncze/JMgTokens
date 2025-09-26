@@ -4,9 +4,10 @@ import cz.mg.annotations.classes.Service;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.token.Token;
 import cz.mg.token.tokens.*;
-import cz.mg.token.tokens.quotes.DoubleQuoteToken;
 import cz.mg.token.tokens.comments.MultiLineCommentToken;
 import cz.mg.token.tokens.comments.SingleLineCommentToken;
+import cz.mg.token.tokens.quotes.BlockQuoteToken;
+import cz.mg.token.tokens.quotes.DoubleQuoteToken;
 import cz.mg.token.tokens.quotes.SingleQuoteToken;
 
 public @Service class TokenFactory {
@@ -28,6 +29,10 @@ public @Service class TokenFactory {
 
     public @Mandatory Token token(@Mandatory String text) {
         return new Token(text, 0);
+    }
+
+    public @Mandatory BlockQuoteToken blockQuote(@Mandatory String text) {
+        return new BlockQuoteToken(text, 0);
     }
 
     public @Mandatory CommentToken comment(@Mandatory String text) {
